@@ -1,0 +1,19 @@
+ <md-content class="md-padding" layout-xs="column" layout="row" layout-wrap layout-align="center center">
+
+	<md-card ng-repeat="repo in main.repos" flex=30 layout="column">
+		<md-card-title>
+		  <md-card-title-text>
+		    <span class="md-headline">{{repo.name}}</span>
+		    <span class="md-subhead">{{repo.stargazers_count}} stars {{repo.forks_count}} forks</span>
+		  </md-card-title-text>
+		  <md-card-title-media>
+		    <img ng-src="{{repo.owner.avatar_url}}">
+		  </md-card-title-media>
+		</md-card-title>
+		<md-card-actions layout="row" layout-align="end center">
+		  <md-button ng-href="{{repo.html_url}}" target="blank">Goto Repo</md-button>
+		  <md-button>Contributors</md-button>
+		</md-card-actions>
+	</md-card>
+	
+</md-content>
