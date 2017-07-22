@@ -1,1 +1,24 @@
-<h1>{{vm.title}}</h1>
+<div layout="row" layout-align="center center" class="md-padding" flex>
+	<h2 ng-show="vm.contributors">Contributors of {{vm.repo}}</h2>
+</div>
+
+<md-content class="md-padding" layout-xs="column" layout="row" layout-wrap layout-align="center center">
+
+ 	<h2 ng-show="!vm.contributors">No Results</h2>
+
+	<md-card ng-repeat="contributor in vm.contributors" flex=30 layout="column">
+		<md-card-title>
+		  <md-card-title-text>
+		    <span class="md-headline">{{contributor.login}}</span>
+		    <span class="md-subhead">{{contributor.contributions}} Contributions</span>
+		  </md-card-title-text>
+		  <md-card-title-media>
+		    <img ng-src="{{contributor.avatar_url}}">
+		  </md-card-title-media>
+		</md-card-title>
+		<md-card-actions layout="row" layout-align="end center">
+		  <md-button ng-href="{{contributor.html_url}}" target="blank">Repos</md-button>
+		</md-card-actions>
+	</md-card>
+	
+</md-content>

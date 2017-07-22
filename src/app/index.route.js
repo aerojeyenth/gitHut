@@ -20,16 +20,15 @@
       controller: 'ContributorsController',
       controllerAs: 'vm',
       params: {
-        owner: null,
-        repo: null
+        repo: null,
+        owner: null
       },
       resolve: {
-          contributors: function ($http) {
-            var contributors = $http.get('https://api.github.com/repos/hybris/aldo-challenge/contributors').then(function(res){
-                return res.data;
-                });
-
-            return contributors;
+          contributors: function ($stateParams, api, NProgress) {
+            var repo = $stateParams.repo;
+            var owner = $stateParams.owner;
+            NProgress.start();
+            return api.contributors.get({owner: owner, repo: repo});;
           }
         }
     });

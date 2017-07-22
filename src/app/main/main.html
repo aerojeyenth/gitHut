@@ -1,4 +1,24 @@
- <md-content class="md-padding" layout-xs="column" layout="row" layout-wrap layout-align="center center">
+  
+  <div layout="row" layout-align="center center" class="md-padding" flex>
+	<md-input-container class="md-block searchBar">
+	    <label>Search Git Repo with Owner</label>
+	    <input type="text" name="owner" ng-model="main.owner" id="search-bar">
+    </md-input-container>
+    <md-input-container class="md-block" flex-gt-sm>
+            <label>Sort By</label>
+            <md-select ng-model="main.sortBy" ng-change="main.searchGit()">
+              <md-option ng-repeat="sortByOption in main.sortByOptions" value="{{sortByOption.id}}">
+                {{sortByOption.name}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+     <md-button type="submit"
+                   ng-click="main.searchGit()" class="md-raised md-primary">Search</md-button>
+  </div>
+
+<md-content class="md-padding" layout-xs="column" layout="row" layout-wrap layout-align="center center">
+
+ 	<h2 ng-show="!main.repos">No Results</h2>
 
 	<md-card ng-repeat="repo in main.repos" flex=30 layout="column">
 		<md-card-title>
@@ -12,7 +32,7 @@
 		</md-card-title>
 		<md-card-actions layout="row" layout-align="end center">
 		  <md-button ng-href="{{repo.html_url}}" target="blank">Goto Repo</md-button>
-		  <md-button>Contributors</md-button>
+		  <md-button ui-sref="contributors({repo: repo.name, owner: repo.owner.login})">Contributors</md-button>
 		</md-card-actions>
 	</md-card>
 	

@@ -6,15 +6,29 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($http) {
+  function MainController($http, sortByOptions, api) {
   	var main = this;
+    main.searchGit = searchGit;
 
-  	console.log("res");
+    main.sortByOptions = sortByOptions;
 
+    //Init
+    main.sortBy = "full_name";
+    main.owner = "hybris";
+    
+    //Initiating with hybris
+    main.searchGit();
 
-  	$http.get('https://api.github.com/users/hybris/repos').then(function(res){
-		main.repos = res.data;
-  	});
+    function searchGit(){
+
+      if(!main.owner)
+        return;
+      NProgress.start();
+      main.repos = api.repos.get({owner:main.owner, sortby: main.sortBy}, function(){
+        NProgress.done();
+      });
+
+    }
 
   }
 })();

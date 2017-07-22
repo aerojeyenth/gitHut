@@ -6,10 +6,12 @@
     .controller('ContributorsController', ContributorsController);
 
   /** @ngInject */
-  function ContributorsController($http, contributors) {
+  function ContributorsController($stateParams, contributors, NProgress) {
   	var vm = this;
 
-  	vm.title = "Contributors Page!";
-  	console.log(contributors);
+    vm.repo = $stateParams.repo;
+
+    vm.contributors = contributors;
+    NProgress.done();
   }
 })();
