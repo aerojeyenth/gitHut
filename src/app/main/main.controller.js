@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('hybris')
+    .module('gitHut')
     .controller('MainController', MainController);
 
   /** @ngInject */

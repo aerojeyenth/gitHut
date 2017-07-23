@@ -102,8 +102,11 @@ section.jumbotron {
 }
 
 .searchBar {
-  width: 60vw;
+  width: 90vw;
   margin-top: 40px;
+   @media (min-width: 600px) {
+      width: 60vw;
+    }
 }
 
 md-card-title-media {

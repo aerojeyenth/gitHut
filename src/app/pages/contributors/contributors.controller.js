@@ -2,12 +2,15 @@
   'use strict';
 
   angular
-    .module('hybris')
+    .module('gitHut')
     .controller('ContributorsController', ContributorsController);
 
   /** @ngInject */
-  function ContributorsController($stateParams, contributors, NProgress) {
+  function ContributorsController($state, $stateParams, contributors, NProgress) {
   	var vm = this;
+
+    if(!$stateParams.repo || !$stateParams.owner)
+      $state.go('home');
 
     vm.repo = $stateParams.repo;
 

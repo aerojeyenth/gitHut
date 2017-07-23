@@ -6,7 +6,8 @@
 
  	<h2 ng-show="!vm.contributors">No Results</h2>
 
-	<md-card ng-repeat="contributor in vm.contributors" flex=30 layout="column">
+ 	<!-- CONTRIBUTORS -->
+	<md-card ng-repeat="contributor in vm.contributors" flex=30  flex-xs=100 layout="column">
 		<md-card-title>
 		  <md-card-title-text>
 		    <span class="md-headline">{{contributor.login}}</span>
@@ -20,5 +21,6 @@
 		  <md-button ng-href="{{contributor.html_url}}" target="blank">Repos</md-button>
 		</md-card-actions>
 	</md-card>
+	<!-- CONTRIBUTORS -->
 	
 </md-content>

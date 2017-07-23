@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('hybris', ['ngResource', 'ui.router', 'ngMaterial']);
+    .module('gitHut', ['ngResource', 'ui.router', 'ngMaterial']);
 
 })();

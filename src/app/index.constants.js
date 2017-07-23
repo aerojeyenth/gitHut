@@ -18,7 +18,7 @@
     }];
 
   angular
-    .module('hybris')
+    .module('gitHut')
     .constant('sortByOptions', sortByOptions)
     .constant('NProgress', NProgress);
 

@@ -3,7 +3,7 @@
     'use strict';
 
     angular
-        .module('hybris')
+        .module('gitHut')
         .factory('api', apiService);
 
     /** @ngInject */
